@@ -1,0 +1,26 @@
+{
+  "name": "Meet Voice Monitor",
+  "description": "Captures tab audio level and detects active speakers on Google Meet to log who is speaking.",
+  "version": "1.1.0",
+  "manifest_version": 3,
+  "minimum_chrome_version": "116",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/not-recording.png"
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": ["tabCapture", "offscreen", "activeTab", "storage", "sidePanel"],
+  "host_permissions": ["https://meet.google.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["meet_speaker_observer.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}

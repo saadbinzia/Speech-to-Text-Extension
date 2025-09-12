@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      height: 200px;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+    }
+    .header {
+      background: #1a73e8;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .controls { 
+      padding: 20px; 
+      background: white; 
+      text-align: center;
+    }
+    .btn { 
+      width: 100%; 
+      padding: 12px; 
+      border: none; 
+      border-radius: 6px; 
+      font-size: 14px; 
+      cursor: pointer; 
+      margin-bottom: 10px;
+    }
+    .start { background: #34a853; color: white; }
+    .stop { background: #ea4335; color: white; display: none; }
+    .status { 
+      text-align: center; 
+      margin: 10px 0; 
+      font-size: 12px; 
+      color: #666;
+      padding: 8px;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+    .info {
+      font-size: 11px;
+      color: #888;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Meet Voice Monitor</div>
+  <div class="controls">
+    <button id="startBtn" class="btn start">Start Monitoring</button>
+    <button id="stopBtn" class="btn stop">Stop Monitoring</button>
+    <div id="status" class="status">Ready. Click Start to open side panel and begin monitoring.</div>
+    <div class="info">
+      This will open a side panel on your Google Meet tab where you can see real-time voice activity logs.
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
