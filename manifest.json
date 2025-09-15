@@ -1,0 +1,40 @@
+{
+  "name": "Google Meet Live Transcription",
+  "description": "Real-time transcription for Google Meet using Assembly AI",
+  "version": "2.0",
+  "manifest_version": 3,
+  "minimum_chrome_version": "116",
+  "action": {
+    "default_icon": "icons/not-recording.png",
+    "default_popup": "popup.html"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": [
+    "tabCapture", 
+    "offscreen", 
+    "sidePanel",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://meet.google.com/*",
+    "https://api.assemblyai.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["offscreen-worklet.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content-script.js"]
+    }
+  ]
+}
